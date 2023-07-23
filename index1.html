@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=,, initial-scale=1.0" />
+    <title>Student Info</title>
+    
+    <style>
+      table{
+        margin: auto;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid red;
+      }
+      div {
+        display: flex;
+        justify-content: center;
+        /* align-items: center;*/
+      }
+      h1{
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1">
+      <br>
+        <h1>Student Information</h1></br></br>
+        <table>
+          <tr>
+            <th>Key</th>
+            <th>Value</th>
+          </tr>
+          <tr>
+            <td>Student Name</td>
+            <td id="std_Name"></td>
+          </tr>
+          <tr>
+            <td>Maths</td>
+            <td id="mathsMarks">0</td>
+          </tr>
+          <tr>
+            <td>Science</td>
+            <td id="scienceMarks">0</td>
+          </tr>
+          <tr>
+            <td>English</td>
+            <td id="englishMarks">0</td>
+          </tr>
+          <tr>
+            <td>Total Marks</td>
+            <td id="total_marks" onclick="totalMarkss()">Click Here</td>
+          </tr>
+          <tr>
+            <td>Percentage</td>
+            <td id="percentage_td" onclick="fun_Percentage()">Click Here</td>
+          </tr>
+          <tr>
+            <td>Grades</td>
+            <td id="grade_td" onclick="grades()">Click Here</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    nameOfStudent = prompt('Enter name of the student');
+    marksOfMaths = Number(prompt('Enter Maths Marks:'));
+    var marksOfScience = Number(prompt('Enter Science Marks:'));
+    let marksOfEnglish = Number(prompt('Enter English Marks:'));
+
+    let totalMarks = marksOfEnglish + marksOfMaths + marksOfScience;
+    let percent = (totalMarks / 300) * 100;
+
+    
+      document.getElementById('std_Name').innerHTML = nameOfStudent;
+      document.getElementById('mathsMarks').innerText = marksOfMaths;
+      document.getElementById('scienceMarks').innerHTML = marksOfScience;
+      document.getElementById('englishMarks').innerHTML = marksOfEnglish;
+  
+
+    function totalMarkss() {
+      document.getElementById('total_marks').innerHTML = totalMarks;
+    }
+    function fun_Percentage() {
+      document.getElementById('percentage_td').innerHTML = percent + '%';
+    }
+    function grades() {
+      let grade;
+      if (percent >= 85) {
+        grade = 'A';
+      } else if (percent >= 65) {
+        grade = 'B';
+      } else if (percent >= 45) {
+        grade = 'C';
+      } else if (percent >= 34) {
+        grade = 'D';
+      } else if (percent < 34) {
+        grade = 'F';
+      }
+      document.getElementById('grade_td').innerHTML = grade;
+    }
+  </script>
+</html>
